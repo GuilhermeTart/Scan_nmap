@@ -12,12 +12,12 @@ def scan_network(network, ports, protocols):
     protocols_string = ",".join(protocols)
 
 #Essa linha converte a lista protocols em uma string, unindo os elementos com uma vírgula. Isso é feito usando o método join().
-    command = f"nmap -p{ports[0]} -sV -sC -Pn {network}"
+    command = f"nmap -p{ports[0]} -sV -sC  {network}"
 
     # Essa linha constrói o comando do Nmap que será executado no terminal. Ele inclui a opção -p seguida da primeira porta da lista ports, bem como outras opções como -sV (detecção de versão), -sC (execução de scripts padrão) e -Pn (ignorar a descoberta de hosts).
     if len(ports) > 1:
         for port in ports[1:]:
-            command += f" & nmap -p{port} -sV -sC -Pn {network}"
+            command += f" & nmap -p{port} -sV -sC {network}"
             process = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
             output, error = process.communicate()
 
