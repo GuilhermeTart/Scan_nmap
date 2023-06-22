@@ -24,13 +24,14 @@ print(r"""
 #Essa linha define uma função chamada scan_network que recebe três parâmetros: network (endereço da rede a ser escaneada), ports (lista de portas a serem escaneadas) e protocols (lista de protocolos a serem usados).
 def scan_network(network, ports, protocols):
 
-    # Essa linha define uma função chamada scan_network que recebe três parâmetros: network (endereço da rede a ser escaneada), ports (lista de portas a serem escaneadas) e protocols (lista de protocolos a serem usados).
+#Essa linha converte a lista protocols em uma string, unindo os elementos com uma vírgula. Isso é feito usando o método join().
     protocols_string = ",".join(protocols)
 
-#Essa linha converte a lista protocols em uma string, unindo os elementos com uma vírgula. Isso é feito usando o método join().
-    command = f"nmap -p{ports[0]} -sV -sC  {network}"
 
-    # Essa linha constrói o comando do Nmap que será executado no terminal. Ele inclui a opção -p seguida da primeira porta da lista ports, bem como outras opções como -sV (detecção de versão), -sC (execução de scripts padrão) e -Pn (ignorar a descoberta de hosts).
+
+    # Essa linha constrói o comando do Nmap que será executado no terminal. Ele inclui a opção -p seguida da primeira porta da lista ports, bem como outras opções como -sV (detecção de versão), -sC (execução de scripts padrão)
+   command = f"nmap -p{ports[0]} -sV -sC  {network}"
+
     if len(ports) > 1:
         for port in ports[1:]:
             command += f" & nmap -p{port} -sV -sC {network}"
