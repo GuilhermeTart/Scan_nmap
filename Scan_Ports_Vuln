@@ -4,7 +4,6 @@
 
 import subprocess
 
-# Basic user interface header
 print(r"""
    ______      _ ____                                ___                          __      
   / ____/_  __(_) / /_  ___  _________ ___  ___     /   | __  ______ ___  _______/ /_____ 
